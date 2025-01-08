@@ -1,5 +1,4 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-import asyncio
 
 url = "mongodb+srv://daven:ZDhibXswJ1LIFZx6@cluster0.qxlcce8.mongodb.net/"
 

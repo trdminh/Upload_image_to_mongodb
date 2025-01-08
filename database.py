@@ -1,8 +1,8 @@
-from pydantic  import BaseModel, EmailStr, Field, ConfigDict
+from pydantic  import BaseModel, Field
 from pydantic.functional_validators import BeforeValidator
 from typing_extensions import Annotated
 from bson import ObjectId
-from typing import Optional, List
+from typing import Optional
 from datetime import datetime
 import torch
 
