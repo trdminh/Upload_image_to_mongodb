@@ -3,8 +3,6 @@ from database import ImageData
 from zeroshort import data, image_features
 import torch
 from datetime import datetime
-from bson import ObjectId
-import json
 import asyncio
 async def create_image_data(image_feature: torch.Tensor, data: dict):
     # Create a new datadata
@@ -30,8 +28,7 @@ async def main():
         inserted_id = await create_image_data(image_feature, item)
         print(f"Data inserted with ID: {inserted_id}")
 
-# run main
-asyncio.run(main())
+
 
 async def check_data():
     cursor = collection.find()
@@ -45,3 +42,7 @@ async def delete_all_documents():
     print(f'Deleted {result.deleted_count} documents.')
     
 # asyncio.run(delete_all_documents())
+
+
+if __name__ == '__main__':
+    asyncio.run(main())

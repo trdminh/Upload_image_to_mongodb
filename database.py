@@ -16,6 +16,10 @@ class ImageData(BaseModel):
     star: bool = Field()
     updatedAt: datetime = Field()
     url: str = Field()
+
+    class Config:
+        arbitrary_types_allowed = True
+
     def to_dict(self):
         data_dict = self.dict(by_alias=True, exclude_none=True)
         data_dict["emb"] = data_dict["emb"].tolist()

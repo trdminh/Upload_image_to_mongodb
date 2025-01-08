@@ -30,4 +30,3 @@ text = [clip.tokenize(item["category"]).to(device) for item in data]
 
 with torch.no_grad():
     image_features = [model.encode_image(image) for image in images]
-    # text_features = model.encode_text(text)
