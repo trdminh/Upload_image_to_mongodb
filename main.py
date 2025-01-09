@@ -1,14 +1,14 @@
 from connection import client, collection
 from database import ImageData
-from zeroshort import data, image_features
+from zeroshort import classification_data
 import torch
 from datetime import datetime
 import asyncio
-async def create_image_data(image_feature: torch.Tensor, data: dict):
+async def create_image_data(data):
     # Create a new datadata
     image_data = ImageData(
-        category=data["category"],
-        emb=image_feature[0],
+        category=data["predicted_category"],
+        emb=data["emb"],
         star=data["star"],
         updatedAt=datetime.now(),
         createdAt=datetime.now(),
@@ -24,8 +24,8 @@ async def create_image_data(image_feature: torch.Tensor, data: dict):
 
 # main
 async def main():
-    for image_feature, item in zip(image_features,data):
-        inserted_id = await create_image_data(image_feature, item)
+    for result in classification_data:
+        inserted_id = await create_image_data(result)
         print(f"Data inserted with ID: {inserted_id}")
 
 
@@ -41,8 +41,10 @@ async def delete_all_documents():
     result = await collection.delete_many({}) 
     print(f'Deleted {result.deleted_count} documents.')
     
-# asyncio.run(delete_all_documents())
+
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    # asyncio.run(main())
+    asyncio.run(delete_all_documents())
+    
