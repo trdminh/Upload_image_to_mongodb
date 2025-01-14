@@ -1,8 +1,8 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 
-url = "mongodb+srv://daven:ZDhibXswJ1LIFZx6@cluster0.qxlcce8.mongodb.net/"
+url = "your_mongodb_url"
 
 client = AsyncIOMotorClient(url) 
-database = client["aihomesearch"]
+database = client["db"]
 collection = database["Image"]
 
