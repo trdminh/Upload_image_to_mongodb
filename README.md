@@ -4,11 +4,5 @@
 - You get database and collection. It's help you connect to your mongodb's collection
 ## Database
 I created my base for data. And it has the form:
-class ImageData(BaseModel):
-    id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
-    category: str = Field()
-    createdAt: datetime = Field()
-    emb: torch.Tensor = Field()
-    star: bool = Field()
-    updatedAt: datetime = Field()
-    url: str = Field()
+![image](https://github.com/user-attachments/assets/819df005-929d-49d8-a934-353eb86c8828)
+
