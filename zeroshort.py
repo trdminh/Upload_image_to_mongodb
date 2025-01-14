@@ -3,7 +3,6 @@ import torch
 from PIL import Image
 import requests
 import copy
-from transformers import CLIPProcessor, CLIPModel
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Images url with respective category
